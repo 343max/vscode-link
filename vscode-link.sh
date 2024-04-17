@@ -1,4 +1,6 @@
 #!/bin/sh
 
-URL="vscode://vscode-remote/ssh-remote%2B43v.de/home/max/docker/netdata?windowId=_blank"
+PATH="/home/max/docker/netdata"
+HOSTNAME="$(/bin/hostname)"
+URL="vscode://vscode-remote/ssh-remote+$HOSTNAME$PATH?windowId=_blank"
 echo $URL
