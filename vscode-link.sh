@@ -3,6 +3,8 @@
 WORKSPACE="$(cd "${1:-$PWD}" && pwd -P)"
 if [ -n "$VSCODELINK_HOST" ]; then
     HOSTNAME="$VSCODELINK_HOST"
+elif [ -n "$SSH_CONNECTION" ]; then
+    HOSTNAME="$(echo "$SSH_CONNECTION" | awk '{print $3}')"
 else
     HOSTNAME="$(/bin/hostname)"
 fi
